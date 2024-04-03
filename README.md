@@ -14,7 +14,7 @@ Setup and Installation:
 3. Database setup:
    - Make sure you have PostgreSQL installed and running on your machine.
    - Create a database named 'movie_rating_system' with a user 'movie_rating' and password 'root'. You can modify these credentials in the 'app.py' file if needed.
-   - Run the provided SQL script ('schema.sql') to create the necessary tables in your PostgreSQL database.
+   - Run the provided SQL script ('sample_data.sql') to create the necessary tables in your PostgreSQL database.
 
 4. Run the application:
    python app.py
