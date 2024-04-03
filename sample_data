@@ -1,0 +1,49 @@
+CREATE TABLE IF NOT EXISTS users (
+                id SERIAL PRIMARY KEY,
+                name TEXT,
+                phone TEXT,
+                password TEXT,
+                email TEXT
+            );
+
+CREATE TABLE IF NOT EXISTS movies (
+                id SERIAL PRIMARY KEY,
+                name TEXT,
+                genre TEXT,
+                rating TEXT,
+                release_date TEXT
+            );
+
+CREATE TABLE IF NOT EXISTS ratings (
+                id SERIAL PRIMARY KEY,
+                user_id INTEGER REFERENCES users(id),
+                movie_id INTEGER REFERENCES movies(id),
+                rating REAL
+            );
+--  users table
+INSERT INTO users (name, phone, password, email)
+VALUES
+    ('John Doe', '11111111111', 'pass1', 'john_doe@gmail.com'),
+    ('Jane Doe', '22222222222', 'pass2', 'jane_doe@gmail.com'),
+    ('Mark Doe', '3333333333', 'pass3', 'mark_doe@gmail.com'),
+    ('Macy Doe', '4444444444', 'pass4', 'macy_doe@gmail.com');
+
+--  movies table
+INSERT INTO movies (name, genre, rating, release_date)
+VALUES
+    ('Home Alone', 'Comedy', 'PG', '01-04-1996'),
+    ('The Godfather', 'Crime', 'R', '01-04-1972'),
+    ('Avengers: Endgame', 'Action', 'PG', '01-04-2019');
+
+-- ratings table
+INSERT INTO ratings (user_id, movie_id, rating)
+VALUES
+    (1, 1, 5.0),
+    (1, 2, 4.0),
+    (1, 3, 3.3),
+    (2, 1, 5.0),
+    (2, 3, 4.5),
+    (3, 1, 1.6),
+    (3, 2, 0.0),
+    (3, 3, 3.4),
+    (4, 2, 4.5);
